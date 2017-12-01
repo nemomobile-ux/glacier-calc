@@ -1,6 +1,7 @@
 /****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** Copyright (C) 2017 Chupligin Sergey <neochapay@gmail.com>
  ** All rights reserved.
  ** Contact: Nokia Corporation (qt-info@nokia.com)
  **
@@ -39,14 +40,16 @@
  **
  ****************************************************************************/ 
 
-import QtQuick 2.0
+import QtQuick 2.6
 import "calculator.js" as CalcEngine
 
 Item {
     Text {
         id: displayText
         text: calcwindow.displayText.length > 0 ? calcwindow.displayText : calcwindow.displayPrevious
-        color: "#FF8600"; smooth: true; font.bold: true
+        color: Theme.accentColor;
+        smooth: true;
+        font.bold: true
         Component.onCompleted: refitText()
         horizontalAlignment: Text.AlignRight;
         verticalAlignment: Text.AlignVCenter;
@@ -90,7 +93,7 @@ Item {
 
     Image {
         id: leftArrowButton
-        source: "image://theme/icon-m-common-backspace"
+        source: "image://theme/chevron-left"
 
         anchors {
             right: parent.right; rightMargin: 6

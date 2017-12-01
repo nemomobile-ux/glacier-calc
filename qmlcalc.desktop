@@ -1,7 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=Calculator
-Categories=Applications
-Exec=invoker --type=qtcomponents-qt5 -s /usr/bin/qmlcalc
-Icon=icon-app-calculator
-

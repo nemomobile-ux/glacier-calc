@@ -1,6 +1,7 @@
 /****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** Copyright (C) 2017 Chupligin Sergey <neochapay@gmail.com>
  ** All rights reserved.
  ** Contact: Nokia Corporation (qt-info@nokia.com)
  **
@@ -39,7 +40,7 @@
  **
  ****************************************************************************/
 
-import QtQuick 2.0
+import QtQuick 2.6
 
 MouseArea {
     id: button
@@ -48,19 +49,23 @@ MouseArea {
     property alias color: buttonText.color
     property bool togglable: false
 
+    Rectangle {
+        id: shade
+        anchors.centerIn: buttonText;
+        width: Math.max(buttonText.width, buttonText.height)
+        height: width
+        radius: 20;
+        color: Theme.accentColor;
+        opacity: 0
+        scale: 1.5
+    }
+
     Text {
         id: buttonText
         anchors.centerIn: parent; anchors.verticalCenterOffset: -1
         font.pixelSize: parent.width > parent.height ? parent.height * .6 : parent.width * .6
-        style: Text.Sunken; color: "white"; styleColor: Qt.lighter(color, 1.2); smooth: true
-
-        Rectangle {
-            id: shade
-            anchors.centerIn: parent;
-            width: Math.max(parent.width, parent.height)
-            height: width
-            radius: 20; color: "#63B8FF"; opacity: 0
-        }
+        style: Text.Sunken;
+        color: Theme.textColor;
     }
 
     onClicked: {
@@ -70,9 +75,8 @@ MouseArea {
     states: [
        State {
            name: "pressed"; when: button.pressed == true
-           PropertyChanges { target: shade; opacity: .4 }
-           PropertyChanges { target: shade; scale: 1.5 }
-           PropertyChanges { target: button; z: 1 }
+           PropertyChanges { target: shade; opacity: 1 }
+           PropertyChanges { target: buttonText; color: Theme.fillDarkColor }
        },
 
        State {

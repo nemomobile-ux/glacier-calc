@@ -1,6 +1,7 @@
 /****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
+ ** Copyright (C) 2017 Chupligin Sergey <neochapay@gmail.com>
  ** All rights reserved.
  ** Contact: Nokia Corporation (qt-info@nokia.com)
  **
@@ -39,16 +40,16 @@
  **
  ****************************************************************************/ 
 
-import QtQuick 2.0
-import com.nokia.meego 2.0
+import QtQuick 2.6
+
+import QtQuick.Controls 1.0
+import QtQuick.Controls.Nemo 1.0
+import QtQuick.Controls.Styles.Nemo 1.0
+
 import "calculator.js" as CalcEngine
 
-PageStackWindow {
+ApplicationWindow {
     id: calcwindow
-
-    Component.onCompleted: {
-        theme.inverted = true
-    }
 
     property string displayOperation: ""
     property string displayText: "0"
@@ -63,6 +64,10 @@ PageStackWindow {
     }
 
     initialPage: Page {
+        headerTools:  HeaderToolsLayout {
+            title: qsTr("Calculator")
+        }
+
         Item {
             id: main
             anchors.fill: parent
@@ -126,7 +131,7 @@ PageStackWindow {
                 property real w: ((main.width - x) / columns) - ((spacing * (columns - 1)) / columns)
                 property real h: ((main.height - y) / rows) - ((spacing * (rows - 1)) / rows)
 
-                CalcButton { width: grid.w; height: grid.h; color: '#333333'; operation: "C" }
+                CalcButton { width: grid.w; height: grid.h; color: Theme.fillColor; operation: "C" }
                 CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.division; togglable: true }
                 CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.multiplication; togglable: true }
 
@@ -148,7 +153,7 @@ PageStackWindow {
 
                 CalcButton { width: grid.w; height: grid.h; operation: "0"; }
                 CalcButton { width: grid.w; height: grid.h; operation: "." }
-                CalcButton { width: grid.w; height: grid.h; operation: "="; color: '#FCB514' }
+                CalcButton { width: grid.w; height: grid.h; operation: "="; color: Theme.accentColor }
             }
 
             states: [
