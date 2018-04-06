@@ -7,12 +7,11 @@ SOURCES += src/main.cpp
 
 OTHER_FILES += \
     src/qml/calculator.js \
-    src/qml/main.qml \
+    src/qml/glacier-calc.qml.qml \
     src/qml/Display.qml \
     src/qml/CalcButton.qml \
     src/qml/HistoryDisplay.qml \
     icon-app-calculator.png
-
 
 target.path = /usr/bin
 INSTALLS += target
@@ -31,3 +30,8 @@ INSTALLS += icon
 
 DISTFILES += \
     rpm/glacier-calc.spec
+
+CONFIG += link_pkgconfig
+PKGCONFIG += glacierapp
+
+LIBS += -lglacierapp

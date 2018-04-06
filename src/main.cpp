@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2011 Robin Burchell <robin+mer@viroteck.net>
- * Copyright (C) 2017 Chupligin Sergey <neochapay@gmail.com>
+ * Copyright (C) 2017-2018 Chupligin Sergey <neochapay@gmail.com>
  *
  * You may use this file under the terms of the BSD license as follows:
  *
@@ -38,21 +38,17 @@
 #include <QQuickView>
 #include <QtQml>
 
+#include <glacierapp.h>
+
 int main(int argc, char **argv)
 {
+    QGuiApplication *app = GlacierApp::app(argc, argv);
+    app->setOrganizationName("NemoMobile");
+    app->setApplicationName("glacier-calc");
 
-    QGuiApplication app(argc, argv);
-    app.setOrganizationName("NemoMobile");
-    app.setApplicationName("glacier-calc");
+    QQuickWindow *window = GlacierApp::showWindow();
+    window->setTitle(QObject::tr("Calculator"));
+    window->setIcon(QIcon("/usr/share/glacier-calc/images/icon-app-calculator.png"));
 
-    QQmlApplicationEngine* engine = new QQmlApplicationEngine(QUrl::fromLocalFile("/usr/share/glacier-calc/qml/main.qml"));
-    QObject *topLevel = engine->rootObjects().value(0);
-    QQuickWindow *window = qobject_cast<QQuickWindow *>(topLevel);
-
-    engine->rootContext()->setContextProperty("__window", window);
-
-    window->setTitle(QObject::tr("Calc"));
-    window->showFullScreen();
-
-    return app.exec();
+    return app->exec();
 }
