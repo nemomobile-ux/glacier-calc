@@ -6,7 +6,7 @@ Name:       glacier-calc
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 
 Summary:    Nemo calculator
-Version:    0.3.0
+Version:    0.3.1
 Release:    1
 Group:      Applications/System
 License:    LGPL v2.1
@@ -17,6 +17,7 @@ Requires:   qt-components-qt5
 Requires:   qt5-qtquickcontrols
 Requires:   qt5-qtquickcontrols-nemo
 Requires:   libglacierapp
+Requires:   mapplauncherd-booster-nemomobile
 
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Quick)
