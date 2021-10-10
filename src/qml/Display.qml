@@ -107,5 +107,16 @@ Item {
                 doOp(CalcEngine.leftArrow)
             }
         }
+
+
+        Shortcut {
+            id: shortcutItem
+            context: Qt.ApplicationShortcut
+            sequence: "Backspace"
+            onActivated: {
+                doOp(CalcEngine.leftArrow)
+            }
+        }
+
     }
 }

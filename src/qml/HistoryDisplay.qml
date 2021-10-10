@@ -40,6 +40,7 @@ Flickable {
         id: text
         width: scrollArea.width
         height: scrollArea.height
+        textFormat: TextEdit.RichText
 
         color: "white"
         font.pixelSize: 40

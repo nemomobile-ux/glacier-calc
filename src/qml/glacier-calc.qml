@@ -55,6 +55,9 @@ ApplicationWindow {
     property string displayText: "0"
     property string displayPrevious: ""
 
+    contentOrientation: Screen.orientation
+    allowedOrientations:  Qt.PortraitOrientation | Qt.LandscapeOrientation | Qt.InvertedLandscapeOrientation | Qt.InvertedPortraitOrientation
+
     function doOp(operation) {
         CalcEngine.doOperation(operation)
         displayOperation = CalcEngine.currentOperation
@@ -131,35 +134,35 @@ ApplicationWindow {
                 property real w: ((main.width - x) / columns) - ((spacing * (columns - 1)) / columns)
                 property real h: ((main.height - y) / rows) - ((spacing * (rows - 1)) / rows)
 
-                CalcButton { width: grid.w; height: grid.h; color: Theme.fillColor; operation: "C" }
-                CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.division; togglable: true }
-                CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.multiplication; togglable: true }
+                CalcButton { width: grid.w; height: grid.h; color: Theme.fillColor; operation: "C"; shortcut: "Esc"; }
+                CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.division; shortcut: "/"; togglable: true }
+                CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.multiplication; shortcut: "*"; togglable: true }
 
                 CalcButton { width: grid.w; height: grid.h; operation: CalcEngine.plusminus }
-                CalcButton { width: grid.w; height: grid.h; operation: "-"; togglable: true }
-                CalcButton { width: grid.w; height: grid.h; operation: "+"; togglable: true }
+                CalcButton { width: grid.w; height: grid.h; operation: "-"; shortcut: "-"; togglable: true }
+                CalcButton { width: grid.w; height: grid.h; operation: "+"; shortcut: "+"; togglable: true }
 
-                CalcButton { width: grid.w; height: grid.h; operation: "7"; }
-                CalcButton { width: grid.w; height: grid.h; operation: "8"; }
-                CalcButton { width: grid.w; height: grid.h; operation: "9"; }
+                CalcButton { width: grid.w; height: grid.h; operation: "7"; shortcut: "7"; }
+                CalcButton { width: grid.w; height: grid.h; operation: "8"; shortcut: "8"; }
+                CalcButton { width: grid.w; height: grid.h; operation: "9"; shortcut: "9"; }
 
-                CalcButton { width: grid.w; height: grid.h; operation: "4"; }
-                CalcButton { width: grid.w; height: grid.h; operation: "5"; }
-                CalcButton { width: grid.w; height: grid.h; operation: "6"; }
+                CalcButton { width: grid.w; height: grid.h; operation: "4"; shortcut: "4"; }
+                CalcButton { width: grid.w; height: grid.h; operation: "5"; shortcut: "5"; }
+                CalcButton { width: grid.w; height: grid.h; operation: "6"; shortcut: "6"; }
 
-                CalcButton { width: grid.w; height: grid.h; operation: "1"; }
-                CalcButton { width: grid.w; height: grid.h; operation: "2"; }
-                CalcButton { width: grid.w; height: grid.h; operation: "3"; }
+                CalcButton { width: grid.w; height: grid.h; operation: "1"; shortcut: "1"; }
+                CalcButton { width: grid.w; height: grid.h; operation: "2"; shortcut: "2"; }
+                CalcButton { width: grid.w; height: grid.h; operation: "3"; shortcut: "3"; }
 
-                CalcButton { width: grid.w; height: grid.h; operation: "0"; }
-                CalcButton { width: grid.w; height: grid.h; operation: "." }
-                CalcButton { width: grid.w; height: grid.h; operation: "="; color: Theme.accentColor }
+                CalcButton { width: grid.w; height: grid.h; operation: "0"; shortcut: "0"; }
+                CalcButton { width: grid.w; height: grid.h; operation: "."; shortcut: "."; }
+                CalcButton { width: grid.w; height: grid.h; operation: "="; shortcut: "Return"; color: Theme.accentColor }
             }
 
             states: [
                 State {
                     name: "portait"
-                    when: screen.currentOrientation == Screen.Portrait
+                    when: isUiPortrait
                     PropertyChanges {
                         target: history
                         visible: false
@@ -171,7 +174,7 @@ ApplicationWindow {
                 },
                 State {
                     name: "landscape"
-                    when: screen.currentOrientation == Screen.Landscape
+                    when: isUiLandscape
                     PropertyChanges {
                         target: history
                         visible: true
