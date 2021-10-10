@@ -37,6 +37,7 @@
 #include <QGuiApplication>
 #include <QQuickView>
 #include <QtQml>
+#include <QScreen>
 
 #include <glacierapp.h>
 
@@ -45,6 +46,15 @@ Q_DECL_EXPORT int main(int argc, char **argv)
     QGuiApplication *app = GlacierApp::app(argc, argv);
     app->setOrganizationName("NemoMobile");
     app->setApplicationName("glacier-calc");
+
+    QScreen* sc = app->primaryScreen();
+    if(sc){
+        sc->setOrientationUpdateMask(Qt::LandscapeOrientation
+                             | Qt::PortraitOrientation
+                             | Qt::InvertedLandscapeOrientation
+                             | Qt::InvertedPortraitOrientation);
+    }
+
 
     QQuickWindow *window = GlacierApp::showWindow();
     window->setTitle(QObject::tr("Calculator"));

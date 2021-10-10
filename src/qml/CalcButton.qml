@@ -47,7 +47,16 @@ MouseArea {
 
     property alias operation: buttonText.text
     property alias color: buttonText.color
+    property alias shortcut: shortcutItem.sequence
     property bool togglable: false
+
+    Shortcut {
+        id: shortcutItem
+        context: Qt.ApplicationShortcut
+        onActivated: {
+            doOp(operation)
+        }
+    }
 
     Rectangle {
         id: shade
