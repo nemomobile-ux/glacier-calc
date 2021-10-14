@@ -5,3 +5,4 @@ Categories=Applications
 Exec=/usr/bin/glacier-calc
 Icon=/usr/share/glacier-calc/images/icon-app-calculator.png
 Name[cs]=Kalkulačka
+Name[ru]=Калькулятор
