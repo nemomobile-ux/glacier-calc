@@ -4,7 +4,7 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../src/main.cpp" line="50"/>
+        <location filename="../src/main.cpp" line="60"/>
         <source>Calculator</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12,7 +12,7 @@
 <context>
     <name>glacier-calc</name>
     <message>
-        <location filename="../src/qml/glacier-calc.qml" line="68"/>
+        <location filename="../src/qml/glacier-calc.qml" line="72"/>
         <source>Calculator</source>
         <translation type="unfinished"></translation>
     </message>
