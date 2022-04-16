@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>CalcButton.qml</file>
+        <file>glacier-calc.qml</file>
+        <file>HistoryDisplay.qml</file>
+        <file>Display.qml</file>
+        <file>calculator.js</file>
+   </qresource>
+</RCC>
