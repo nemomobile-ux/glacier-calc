@@ -12,7 +12,7 @@
     <message>
         <location filename="../src/qml/glacier-calc.qml" line="72"/>
         <source>Calculator</source>
-        <translation>Калькуятор</translation>
+        <translation>Калькулятор</translation>
     </message>
 </context>
 </TS>
