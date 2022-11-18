@@ -175,7 +175,7 @@ ApplicationWindow {
                 },
                 State {
                     name: "landscape"
-                    when: isUiLandscape
+                    when: !isUiLandscape
                     PropertyChanges {
                         target: history
                         visible: true
