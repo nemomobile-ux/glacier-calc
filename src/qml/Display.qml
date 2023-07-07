@@ -40,7 +40,7 @@
  **
  ****************************************************************************/ 
 
-import QtQuick 2.6
+import QtQuick
 import "calculator.js" as CalcEngine
 
 Item {

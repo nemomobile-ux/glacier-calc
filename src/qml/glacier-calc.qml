@@ -40,12 +40,10 @@
  **
  ****************************************************************************/ 
 
-import QtQuick 2.6
-import QtQuick.Window 2.1
+import QtQuick
+import QtQuick.Window
 
-import QtQuick.Controls 1.0
-import QtQuick.Controls.Nemo 1.0
-import QtQuick.Controls.Styles.Nemo 1.0
+import Nemo.Controls
 
 import "calculator.js" as CalcEngine
 
