@@ -13,10 +13,9 @@ include(FeatureSummary)
 include(GNUInstallDirs)
 
 set(QT_MIN_VERSION "5.11.0")
-find_package(Qt5 COMPONENTS Core Gui Quick LinguistTools REQUIRED)
-find_package(Glacier 0.8 COMPONENTS App REQUIRED)
-find_package(Qt5QuickCompiler)
 
+find_package(Qt6 COMPONENTS Core Gui Quick LinguistTools REQUIRED)
+find_package(Glacier 0.8 COMPONENTS App REQUIRED)
 add_subdirectory(src)
 
 install(FILES glacier-calc.desktop
@@ -26,7 +25,7 @@ install(FILES icon-app-calculator.png
 
 # Translations
 file(GLOB TS_FILES translations/*.ts)
-qt5_add_translation(QM_FILES ${TS_FILES})
+qt_add_translation(QM_FILES ${TS_FILES})
 add_custom_target(translations DEPENDS ${QM_FILES})
 add_dependencies(glacier-calc translations)
 
