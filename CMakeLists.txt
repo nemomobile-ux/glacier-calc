@@ -14,24 +14,8 @@ include(GNUInstallDirs)
 
 set(QT_MIN_VERSION "5.11.0")
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Gui Quick LinguistTools REQUIRED)
+find_package(Qt6 COMPONENTS Core Gui Quick LinguistTools REQUIRED)
 find_package(Glacier 0.8 COMPONENTS App REQUIRED)
-
-if(${QT_VERSION} VERSION_LESS "5.15.0")
-    find_package(Qt5QuickCompiler)
-    macro(qt_add_translation)
-        qt5_add_translation(${ARGN})
-    endmacro()
-    macro(qt_add_resources)
-        qtquick_compiler_add_resources(${ARGN})
-    endmacro()
-    macro(qt_add_resources)
-        qt5_add_resources(${ARGN})
-    endmacro()
-endif()
-
-
 add_subdirectory(src)
 
 install(FILES glacier-calc.desktop

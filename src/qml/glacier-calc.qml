@@ -50,6 +50,7 @@ import "calculator.js" as CalcEngine
 ApplicationWindow {
     id: calcwindow
 
+    property bool isUiLandscape: width < height
     property string displayOperation: ""
     property string displayText: "0"
     property string displayPrevious: ""
