@@ -56,7 +56,7 @@ ApplicationWindow {
     property string displayPrevious: ""
 
     contentOrientation: Screen.orientation
-    allowedOrientations:  Qt.PortraitOrientation | Qt.LandscapeOrientation | Qt.InvertedLandscapeOrientation | Qt.InvertedPortraitOrientation
+//    allowedOrientations:  Qt.PortraitOrientation | Qt.LandscapeOrientation | Qt.InvertedLandscapeOrientation | Qt.InvertedPortraitOrientation
 
     function doOp(operation) {
         CalcEngine.doOperation(operation)
