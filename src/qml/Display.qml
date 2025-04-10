@@ -1,7 +1,7 @@
 /****************************************************************************
  **
  ** Copyright (C) 2011 Nokia Corporation and/or its subsidiary(-ies).
- ** Copyright (C) 2017 Chupligin Sergey <neochapay@gmail.com>
+ ** Copyright (C) 2017-2025 Chupligin Sergey <neochapay@gmail.com>
  ** All rights reserved.
  ** Contact: Nokia Corporation (qt-info@nokia.com)
  **
@@ -41,6 +41,7 @@
  ****************************************************************************/ 
 
 import QtQuick
+import Nemo
 import "calculator.js" as CalcEngine
 
 Item {
